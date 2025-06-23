@@ -141,7 +141,7 @@ async def stt_endpoint(file: UploadFile = File(...)):
     logging.info("📝 Whisper → %s caracteres", len(transcript))
 
     prompt_gpt = (
-        "Eres un extractor de respuestas para encuestas capturadas en audio.\n"
+        "Eres un extractor de respuestas para encuestas capturadas en audio.No te inventes respuestas , tira error si no hay nada en el audio\n"
         "Devuelve SOLO JSON con la clave «respuestas_preguntas» (lista).\n"
         "Cada elemento DEBE tener estas claves:\n"
         "  pregunta_id, tipo_pregunta_id, texto, numero, opcion_id, opciones_ids\n"
