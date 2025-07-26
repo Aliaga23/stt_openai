@@ -83,14 +83,12 @@ def sanitize_answers(data: Dict[str, Any], plantilla: Dict[str, Any]) -> Dict[st
         if tipo == 2 and item.get("numero") is not None:
             item["texto"] = None
 
-        # tipo 3 – quedar con una sola opción
         if tipo == 3:
             item["texto"] = None
             if item.get("opciones_ids"):
                 item["opcion_id"] = item["opciones_ids"][0]
                 item["opciones_ids"] = []
 
-        # tipo 4 – filtrar UUID válidos
         if tipo == 4:
             item["texto"] = None
             valid = {o["id"] for o in preg.get("opciones", [])}
